@@ -12,5 +12,4 @@ message User {
   string display_name = 5;
   string profile_picture_url = 6;
   repeated string contacts = 7; // List of user IDs in the user's contacts
-  // Additional user properties can be added here.
 }

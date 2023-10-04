@@ -10,5 +10,4 @@ message Chat {
     bool is_group_chat = 3; // Indicates whether it's a group chat
     repeated string participants = 4; // User IDs of participants
     repeated chat.core.v1.Message messages = 5; // List of messages in the chat
-    // Additional chat properties can be added here.
   }

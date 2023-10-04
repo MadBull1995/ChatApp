@@ -18,7 +18,6 @@ message Message {
         string file_name = 2;
         string file_type = 3;
         bytes file_data = 4; // Binary data of the attachment
-        // Additional attachment properties can be added here.
     }
 }
 

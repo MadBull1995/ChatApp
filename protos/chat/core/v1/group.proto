@@ -10,5 +10,4 @@ message Group {
     string group_name = 2;
     string admin_user_id = 3; // User ID of the group administrator
     repeated chat.core.v1.User members = 4;
-    // Additional group properties can be added here.
   }

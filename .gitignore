@@ -1,0 +1,34 @@
+
+*.swp
+*.*~
+project.lock.json
+.DS_Store
+*.pyc
+
+# Visual Studio Code
+.vscode
+backend/Migrations/
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+backend/[Dd]ebug/
+backend/[Dd]ebugPublic/
+backend/[Rr]elease/
+backend/[Rr]eleases/
+backend/x64/
+backend/x86/
+backend/build/
+backend/bld/
+backend/bin/
+backend/obj/
+backend/msbuild.log
+backend/msbuild.err
+backend/msbuild.wrn
+
+# Visual Studio 2015
+backend/.vs/
