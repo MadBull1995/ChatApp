@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Protobuf Include="..\protos\chat\core\v1\user.proto" Link="Protos\chat\core\v1\user.proto" GrpcServices="None" ProtoRoot="../protos" />
+    <Protobuf Include="..\protos\chat\core\v1\message.proto" Link="Protos\chat\core\v1\message.proto" GrpcServices="None" ProtoRoot="../protos" />
+    <Protobuf Include="..\protos\chat\core\v1\chat.proto" Link="Protos\chat\core\v1\chat.proto" GrpcServices="None" ProtoRoot="../protos" />
+    <Protobuf Include="..\protos\chat\core\v1\group.proto" Link="Protos\chat\core\v1\group.proto" GrpcServices="None" ProtoRoot="../protos" />
+    <Protobuf Include="..\protos\chat\services\v1\chatter.proto" Link="Protos\chat\core\v1\chatter.proto" GrpcServices="Server" ProtoRoot="../protos" />
+    <Protobuf Include="..\protos\chat\services\v1\users.proto" Link="Protos\chat\core\v1\users.proto" GrpcServices="Server" ProtoRoot="../protos" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Grpc.AspNetCore" Version="2.52.0" />
+    <PackageReference Include="Google.Protobuf" Version="3.22.0" />
+    <PackageReference Include="Grpc.Tools" Version="2.58.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.11">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.11" />
+  </ItemGroup>
+
+</Project>

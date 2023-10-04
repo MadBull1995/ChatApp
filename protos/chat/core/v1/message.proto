@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+option csharp_namespace = "ChatApp";
+package chat.core.v1;
+
+// Message entity represents individual chat messages.
+message Message {
+    string message_id = 1;
+    string sender_id = 2;
+    string content = 3;
+    google.protobuf.Timestamp timestamp = 4;
+    repeated chat.core.v1.Message.Attachment attachments = 5; // URLs or references to message attachments
+    
+    // Attachment entity represents file attachments in messages.
+    message Attachment {
+        string attachment_id = 1;
+        string file_name = 2;
+        string file_type = 3;
+        bytes file_data = 4; // Binary data of the attachment
+        // Additional attachment properties can be added here.
+    }
+}
+

@@ -1,0 +1,14 @@
+syntax = "proto3";
+import "chat/core/v1/message.proto";
+option csharp_namespace = "ChatApp";
+package chat.core.v1;
+
+// Chat entity represents both one-on-one and group chats.
+message Chat {
+    string chat_id = 1;
+    string chat_name = 2; // Display name for group chats
+    bool is_group_chat = 3; // Indicates whether it's a group chat
+    repeated string participants = 4; // User IDs of participants
+    repeated chat.core.v1.Message messages = 5; // List of messages in the chat
+    // Additional chat properties can be added here.
+  }

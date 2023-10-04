@@ -1,0 +1,2 @@
+obj/Debug/net8.0/chat/core/v1/Group.cs: ../protos/chat/core/v1/user.proto\
+ ../protos/chat/core/v1/group.proto

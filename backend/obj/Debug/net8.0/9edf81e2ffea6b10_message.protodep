@@ -1,0 +1,2 @@
+obj/Debug/net8.0/chat/core/v1/Message.cs: /Users/amitshmulevitch/.nuget/packages/grpc.tools/2.58.0/build/native/include/google/protobuf/timestamp.proto\
+ ../protos/chat/core/v1/message.proto

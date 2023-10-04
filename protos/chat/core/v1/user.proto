@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option csharp_namespace = "ChatApp";
+package chat.core.v1;
+
+// User entity represents app users.
+message User {
+  string user_id = 1;
+  string username = 2;
+  string email = 3;
+  string password_hash = 4;
+  string display_name = 5;
+  string profile_picture_url = 6;
+  repeated string contacts = 7; // List of user IDs in the user's contacts
+  // Additional user properties can be added here.
+}

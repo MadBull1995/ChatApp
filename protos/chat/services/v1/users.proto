@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+import "chat/core/v1/user.proto";
+import "chat/core/v1/message.proto";
+
+option csharp_namespace = "ChatApp";
+package chat.services.v1;
+
+service Users {
+    rpc SignUp(SignUpRequest) returns (chat.core.v1.User);
+}
+
+message SignUpRequest {
+    string username = 1;
+    string password = 2;
+    string email = 3;
+}

@@ -1,0 +1,14 @@
+syntax = "proto3";
+import "chat/core/v1/user.proto";
+
+option csharp_namespace = "ChatApp";
+package chat.core.v1;
+
+// Group entity represents a group of users.
+message Group {
+    string group_id = 1;
+    string group_name = 2;
+    string admin_user_id = 3; // User ID of the group administrator
+    repeated chat.core.v1.User members = 4;
+    // Additional group properties can be added here.
+  }
