@@ -1,0 +1,18 @@
+<mat-selection-list [multiple]=false hideSingleSelectionIndicator=true>
+  <mat-divider></mat-divider>
+  <mat-progress-bar *ngIf="_loading" mode="indeterminate"></mat-progress-bar>
+  
+    <mat-list-option [routerLink]="['chat', getShortChatId(chat.chatId)]" *ngFor="let chat of chats">
+          <app-item-component 
+            [name]="chat.chatName"
+          >
+            <div header>
+              {{chat.chatName}}
+            </div>
+            <div class="chat-details" content>
+              {{chat.messages?.pop()?.content}}
+            </div>
+          </app-item-component>
+      </mat-list-option>
+  
+  </mat-selection-list>

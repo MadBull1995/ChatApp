@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+import "chat/core/v1/user.proto";
+import "chat/core/v1/message.proto";
+import "chat/core/v1/chat.proto";
+import "chat/core/v1/group.proto";
+
+option csharp_namespace = "ChatApp";
+package chat.services.v1;
+
+service Chatter {
+    rpc JoinRoom (JoinRoomRequest) returns (JoinRoomResponse);
+    rpc SendMessage (SendMessageRequest) returns (SendMessageResponse);
+    rpc GetMessages (GetMessagesRequest) returns (stream SendMessageRequest);
+    rpc ListChats (ListChatsRequest) returns (stream chat.core.v1.Chat);
+    rpc CreateRoom (CreateRoomRequest) returns (chat.core.v1.Chat);
+}
+
+message ListChatsRequest {
+    string user_id = 1;
+}
+
+message CreateRoomRequest {
+    oneof group_or_chat {
+        chat.core.v1.Group group = 1;
+        string user_id = 2;
+    };
+}
+
+message JoinRoomRequest {
+    chat.core.v1.User user = 1;
+    string room_id = 2;
+}
+
+message JoinRoomResponse {
+    string status = 1; // success or error message
+}
+
+message SendMessageRequest {
+    string room_id = 1;
+    chat.core.v1.Message message = 2;
+}
+
+message SendMessageResponse {
+    string status = 1; // success or error message
+}
+
+message GetMessagesRequest {
+    string user_id = 1;
+}

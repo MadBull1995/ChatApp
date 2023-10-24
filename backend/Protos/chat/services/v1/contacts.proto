@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+import "chat/core/v1/contact.proto";
+import "google/protobuf/empty.proto";
+
+option csharp_namespace = "ChatApp";
+package chat.services.v1;
+
+service Contacts {
+    rpc GetContacts(GetContactsRequest) returns (GetContactsResponse);
+    rpc AddContact(AddContactRequest) returns (google.protobuf.Empty);
+    rpc DeleteContact(DeleteContactRequest) returns (google.protobuf.Empty);
+}
+
+message GetContactsRequest {
+    string user_id = 1;
+}
+
+message GetContactsResponse {
+    repeated chat.core.v1.Contact contacts = 1;
+}
+
+message AddContactRequest {
+    oneof email_or_id {
+        string email = 1;
+        string id = 2;
+    }
+}
+
+message DeleteContactRequest {
+    string contact_id = 1;
+}

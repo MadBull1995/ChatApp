@@ -56,7 +56,11 @@ namespace ChatApp {
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::ChatApp.GetMessagesRequest> __Marshaller_chat_services_v1_GetMessagesRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ChatApp.GetMessagesRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::ChatApp.Message> __Marshaller_chat_core_v1_Message = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ChatApp.Message.Parser));
+    static readonly grpc::Marshaller<global::ChatApp.ListChatsRequest> __Marshaller_chat_services_v1_ListChatsRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ChatApp.ListChatsRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::ChatApp.Chat> __Marshaller_chat_core_v1_Chat = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ChatApp.Chat.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::ChatApp.CreateRoomRequest> __Marshaller_chat_services_v1_CreateRoomRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ChatApp.CreateRoomRequest.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::ChatApp.JoinRoomRequest, global::ChatApp.JoinRoomResponse> __Method_JoinRoom = new grpc::Method<global::ChatApp.JoinRoomRequest, global::ChatApp.JoinRoomResponse>(
@@ -75,12 +79,28 @@ namespace ChatApp {
         __Marshaller_chat_services_v1_SendMessageResponse);
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::ChatApp.GetMessagesRequest, global::ChatApp.Message> __Method_GetMessages = new grpc::Method<global::ChatApp.GetMessagesRequest, global::ChatApp.Message>(
+    static readonly grpc::Method<global::ChatApp.GetMessagesRequest, global::ChatApp.SendMessageRequest> __Method_GetMessages = new grpc::Method<global::ChatApp.GetMessagesRequest, global::ChatApp.SendMessageRequest>(
         grpc::MethodType.ServerStreaming,
         __ServiceName,
         "GetMessages",
         __Marshaller_chat_services_v1_GetMessagesRequest,
-        __Marshaller_chat_core_v1_Message);
+        __Marshaller_chat_services_v1_SendMessageRequest);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::ChatApp.ListChatsRequest, global::ChatApp.Chat> __Method_ListChats = new grpc::Method<global::ChatApp.ListChatsRequest, global::ChatApp.Chat>(
+        grpc::MethodType.ServerStreaming,
+        __ServiceName,
+        "ListChats",
+        __Marshaller_chat_services_v1_ListChatsRequest,
+        __Marshaller_chat_core_v1_Chat);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::ChatApp.CreateRoomRequest, global::ChatApp.Chat> __Method_CreateRoom = new grpc::Method<global::ChatApp.CreateRoomRequest, global::ChatApp.Chat>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "CreateRoom",
+        __Marshaller_chat_services_v1_CreateRoomRequest,
+        __Marshaller_chat_core_v1_Chat);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -104,15 +124,20 @@ namespace ChatApp {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      /// <summary>
-      /// Other methods
-      /// </summary>
-      /// <param name="request">The request received from the client.</param>
-      /// <param name="responseStream">Used for sending responses back to the client.</param>
-      /// <param name="context">The context of the server-side call handler being invoked.</param>
-      /// <returns>A task indicating completion of the handler.</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task GetMessages(global::ChatApp.GetMessagesRequest request, grpc::IServerStreamWriter<global::ChatApp.Message> responseStream, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task GetMessages(global::ChatApp.GetMessagesRequest request, grpc::IServerStreamWriter<global::ChatApp.SendMessageRequest> responseStream, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task ListChats(global::ChatApp.ListChatsRequest request, grpc::IServerStreamWriter<global::ChatApp.Chat> responseStream, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::ChatApp.Chat> CreateRoom(global::ChatApp.CreateRoomRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -127,7 +152,9 @@ namespace ChatApp {
       return grpc::ServerServiceDefinition.CreateBuilder()
           .AddMethod(__Method_JoinRoom, serviceImpl.JoinRoom)
           .AddMethod(__Method_SendMessage, serviceImpl.SendMessage)
-          .AddMethod(__Method_GetMessages, serviceImpl.GetMessages).Build();
+          .AddMethod(__Method_GetMessages, serviceImpl.GetMessages)
+          .AddMethod(__Method_ListChats, serviceImpl.ListChats)
+          .AddMethod(__Method_CreateRoom, serviceImpl.CreateRoom).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the service binding logic.
@@ -139,7 +166,9 @@ namespace ChatApp {
     {
       serviceBinder.AddMethod(__Method_JoinRoom, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::ChatApp.JoinRoomRequest, global::ChatApp.JoinRoomResponse>(serviceImpl.JoinRoom));
       serviceBinder.AddMethod(__Method_SendMessage, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::ChatApp.SendMessageRequest, global::ChatApp.SendMessageResponse>(serviceImpl.SendMessage));
-      serviceBinder.AddMethod(__Method_GetMessages, serviceImpl == null ? null : new grpc::ServerStreamingServerMethod<global::ChatApp.GetMessagesRequest, global::ChatApp.Message>(serviceImpl.GetMessages));
+      serviceBinder.AddMethod(__Method_GetMessages, serviceImpl == null ? null : new grpc::ServerStreamingServerMethod<global::ChatApp.GetMessagesRequest, global::ChatApp.SendMessageRequest>(serviceImpl.GetMessages));
+      serviceBinder.AddMethod(__Method_ListChats, serviceImpl == null ? null : new grpc::ServerStreamingServerMethod<global::ChatApp.ListChatsRequest, global::ChatApp.Chat>(serviceImpl.ListChats));
+      serviceBinder.AddMethod(__Method_CreateRoom, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::ChatApp.CreateRoomRequest, global::ChatApp.Chat>(serviceImpl.CreateRoom));
     }
 
   }

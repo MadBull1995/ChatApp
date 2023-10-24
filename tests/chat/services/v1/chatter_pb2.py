@@ -15,7 +15,7 @@ from chat.core.v1 import user_pb2 as chat_dot_core_dot_v1_dot_user__pb2
 from chat.core.v1 import message_pb2 as chat_dot_core_dot_v1_dot_message__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1e\x63hat/services/v1/chatter.proto\x12\x10\x63hat.services.v1\x1a\x17\x63hat/core/v1/user.proto\x1a\x1a\x63hat/core/v1/message.proto\"D\n\x0fJoinRoomRequest\x12 \n\x04user\x18\x01 \x01(\x0b\x32\x12.chat.core.v1.User\x12\x0f\n\x07room_id\x18\x02 \x01(\t\"\"\n\x10JoinRoomResponse\x12\x0e\n\x06status\x18\x01 \x01(\t\"M\n\x12SendMessageRequest\x12\x0f\n\x07room_id\x18\x01 \x01(\t\x12&\n\x07message\x18\x02 \x01(\x0b\x32\x15.chat.core.v1.Message\"%\n\x13SendMessageResponse\x12\x0e\n\x06status\x18\x01 \x01(\t\"%\n\x12GetMessagesRequest\x12\x0f\n\x07room_id\x18\x01 \x01(\t2\x86\x02\n\x07\x43hatter\x12Q\n\x08JoinRoom\x12!.chat.services.v1.JoinRoomRequest\x1a\".chat.services.v1.JoinRoomResponse\x12Z\n\x0bSendMessage\x12$.chat.services.v1.SendMessageRequest\x1a%.chat.services.v1.SendMessageResponse\x12L\n\x0bGetMessages\x12$.chat.services.v1.GetMessagesRequest\x1a\x15.chat.core.v1.Message0\x01\x42\n\xaa\x02\x07\x43hatAppb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1e\x63hat/services/v1/chatter.proto\x12\x10\x63hat.services.v1\x1a\x17\x63hat/core/v1/user.proto\x1a\x1a\x63hat/core/v1/message.proto\"D\n\x0fJoinRoomRequest\x12 \n\x04user\x18\x01 \x01(\x0b\x32\x12.chat.core.v1.User\x12\x0f\n\x07room_id\x18\x02 \x01(\t\"\"\n\x10JoinRoomResponse\x12\x0e\n\x06status\x18\x01 \x01(\t\"M\n\x12SendMessageRequest\x12\x0f\n\x07room_id\x18\x01 \x01(\t\x12&\n\x07message\x18\x02 \x01(\x0b\x32\x15.chat.core.v1.Message\"%\n\x13SendMessageResponse\x12\x0e\n\x06status\x18\x01 \x01(\t\"%\n\x12GetMessagesRequest\x12\x0f\n\x07user_id\x18\x01 \x01(\t2\x95\x02\n\x07\x43hatter\x12Q\n\x08JoinRoom\x12!.chat.services.v1.JoinRoomRequest\x1a\".chat.services.v1.JoinRoomResponse\x12Z\n\x0bSendMessage\x12$.chat.services.v1.SendMessageRequest\x1a%.chat.services.v1.SendMessageResponse\x12[\n\x0bGetMessages\x12$.chat.services.v1.GetMessagesRequest\x1a$.chat.services.v1.SendMessageRequest0\x01\x42\n\xaa\x02\x07\x43hatAppb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -35,5 +35,5 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['_GETMESSAGESREQUEST']._serialized_start=329
   _globals['_GETMESSAGESREQUEST']._serialized_end=366
   _globals['_CHATTER']._serialized_start=369
-  _globals['_CHATTER']._serialized_end=631
+  _globals['_CHATTER']._serialized_end=646
 # @@protoc_insertion_point(module_scope)

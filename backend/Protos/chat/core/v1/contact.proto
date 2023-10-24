@@ -1,0 +1,12 @@
+syntax = "proto3";
+import "chat/core/v1/user.proto";
+
+option csharp_namespace = "ChatApp";
+package chat.core.v1;
+
+message Contact {
+    string user_id = 1;
+    string display_name = 2;
+    string email = 3;
+    string profile_picture_url = 4;
+}

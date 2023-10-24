@@ -1,0 +1,22 @@
+<mat-drawer-container class="app-container" autosize>
+  <mat-drawer #drawer class="side-bar" opened="true" mode="side" appDraggable>
+    
+    <div class="drag-handle"></div>
+    <app-sidebar [title]="title" (sidebarCollapsed)="drawer.toggle()" class="side-bar">
+    </app-sidebar>
+  </mat-drawer>
+
+  <div class="main-content">
+    <!-- Expand floating button -->
+    <div class="expand" *ngIf="!drawer.opened && !hideSidebar">
+      <button mat-icon-button (click)="drawer.toggle()" color="primary" aria-label="Example icon button with a home icon">
+          <mat-icon>login</mat-icon>
+      </button>
+    </div>
+    <!-- Main content -->
+    <!-- <div class="router-container"> -->
+      <router-outlet ></router-outlet>
+    <!-- </div> -->
+  </div>
+
+</mat-drawer-container>

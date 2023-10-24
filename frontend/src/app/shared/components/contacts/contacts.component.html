@@ -1,0 +1,32 @@
+<mat-selection-list [multiple]=false hideSingleSelectionIndicator=true>
+  <mat-divider></mat-divider>
+  <!-- <h3 matSubheader><button mat-flat-button><mat-icon>add</mat-icon></button></h3> -->
+
+  <mat-list-option [routerLink]="['contacts', contact.userId]" *ngFor="let contact of app.contacts">
+        <app-item-component 
+          [name]="contact.displayName"
+          [contactPicture]="contact.profilePictureUrl"
+        >
+          <div header>
+            {{contact.displayName}}
+          </div>
+          <div class="contact-details" content>
+            {{contact.email}}
+          </div>
+        </app-item-component>
+    </mat-list-option>
+
+    <!-- <mat-divider></mat-divider>
+    <h3 matSubheader>Explore</h3>
+
+    <mat-list-option *ngFor="let contact of contacts">
+        <app-item-component>
+            <div header>
+              Contact Header
+            </div>
+            <div content>
+              Contact Details
+            </div>
+        </app-item-component>
+    </mat-list-option> -->
+</mat-selection-list>

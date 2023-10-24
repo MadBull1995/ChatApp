@@ -38,11 +38,8 @@ namespace ChatApp.Migrations
 
             modelBuilder.Entity("ChatApp.Data.DbMessage", b =>
                 {
-                    b.Property<int>("MessageId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("MessageId"));
+                    b.Property<string>("MessageId")
+                        .HasColumnType("text");
 
                     b.Property<string>("ChatRoomId")
                         .IsRequired()
@@ -62,10 +59,6 @@ namespace ChatApp.Migrations
                     b.Property<DateTime>("Timestamp")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.HasKey("MessageId");
 
                     b.HasIndex("DbChatRoomChatRoomId");
@@ -81,6 +74,10 @@ namespace ChatApp.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("PasswordHash")
                         .IsRequired()
                         .HasColumnType("text");
 

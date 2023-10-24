@@ -1,0 +1,11 @@
+<div class="item">
+    <div class="col-sm">
+        <!-- <img matListItemAvatar [src]="contactPicture"> -->
+        <img matListItemAvatar *ngIf="contactPicture" src="{{ contactPicture }}" alt="Contact photo">
+        <span class="avatar" matListItemAvatar *ngIf="!contactPicture">{{ name.charAt(0) }}</span>
+    </div>
+    <div class="col">
+        <span matListItemTitle><ng-content select="[header]"></ng-content></span>
+        <span matListItemLine><ng-content select="[content]"></ng-content></span>
+    </div>
+</div>

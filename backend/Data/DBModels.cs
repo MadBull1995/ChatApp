@@ -9,6 +9,8 @@ public class DbUser
     public string UserName { get; set; }
     public string Email { get; set; }
     public string Role { get; set; }
+    public string PasswordHash { get; set; }  // Added PasswordHash field
+
     public DateTime? RegistrationDate { get; set; }
 
     // Navigation property for many-to-many relation
@@ -43,11 +45,10 @@ public class DbUserChatRoom
 public class DbMessage
 {
     [Key]
-    public int MessageId { get; set; } // Primary key
+    public string MessageId { get; set; } // Primary key
     public string ChatRoomId { get; set; }
     public string Content { get; set; } // The content of the message
     public DateTime Timestamp { get; set; } // When the message was sent
-    public string UserId { get; set; } // Foreign key for the user who sent the message
     public string SenderId { get; set; }
     public DbUser Sender { get; set; }
 }

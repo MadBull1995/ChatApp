@@ -1,4 +1,5 @@
 using System;
+using System.Security.Cryptography;
 
 namespace ChatApp.Models;
 
@@ -7,12 +8,53 @@ public abstract class User
     public string UserId { get; protected set; }
     public string UserName { get; protected set; }
     public string Email { get; protected set; }
+    public string PasswordHash { get; protected set; }
 
     public User(string userId, string userName, string email)
     {
         UserId = userId;
         UserName = userName;
         Email = email;
+    }
+
+    public void SetHash(string passwordHash)
+    {
+        PasswordHash = passwordHash;
+    }
+
+    public void SetPassword(string password)
+    {
+        using (var deriveBytes = new Rfc2898DeriveBytes(password, 20))  // 20-byte salt
+        {
+            byte[] salt = deriveBytes.Salt;
+            byte[] key = deriveBytes.GetBytes(20);  // 20-byte key
+
+            PasswordHash = $"{Convert.ToBase64String(salt)}:{Convert.ToBase64String(key)}";
+        }
+
+        Console.WriteLine($"{UserName} set password: {PasswordHash}");
+    }
+
+    public bool ValidatePassword(string passwordToCheck)
+    {
+        // Extract the salt and hash from the stored PasswordHash
+        string[] parts = PasswordHash.Split(new[] { ':' }, 2);
+        if (parts.Length != 2)
+        {
+            return false;
+        }
+
+        byte[] salt = Convert.FromBase64String(parts[0]);
+        byte[] hash = Convert.FromBase64String(parts[1]);
+
+        // Hash the given password to check
+        using (var deriveBytes = new Rfc2898DeriveBytes(passwordToCheck, salt))
+        {
+            byte[] newKey = deriveBytes.GetBytes(20);  // 20-byte key
+
+            // Perform comparison - constant time
+            return newKey.SequenceEqual(hash);
+        }
     }
 
     public abstract void DisplayInfo();

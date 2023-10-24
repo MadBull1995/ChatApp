@@ -133,9 +133,6 @@ namespace ChatApp {
     private static readonly pb::FieldCodec<global::ChatApp.User> _repeated_members_codec
         = pb::FieldCodec.ForMessage(34, global::ChatApp.User.Parser);
     private readonly pbc::RepeatedField<global::ChatApp.User> members_ = new pbc::RepeatedField<global::ChatApp.User>();
-    /// <summary>
-    /// Additional group properties can be added here.
-    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public pbc::RepeatedField<global::ChatApp.User> Members {

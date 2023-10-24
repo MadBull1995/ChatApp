@@ -1,0 +1,61 @@
+<mat-toolbar color="primary" class="sidebar-top-menu">
+    <div class="collapse">
+        <button (click)="onCollapse()" mat-icon-button class="collapse-button" color="accent"
+            aria-label="Example icon button with a home icon">
+            <mat-icon>login</mat-icon>
+        </button>
+    </div>
+    <a routerLink="">
+        <span>{{title}}</span>
+    </a>
+</mat-toolbar>
+<div class="sidebar-search-content">
+    <mat-form-field class="sidebar-search">
+        <mat-label>Search</mat-label>
+        <input matInput type="text" placeholder="Search Contacts">
+    </mat-form-field>
+</div>
+<div class="hr"></div>
+<section>
+    <!-- Main navigation / actions button -->
+    <div class="button-row">
+        <div class="flex-container">
+            <div class="main-navigation">
+                <button (click)="setLayout(SidebarLayout.Chats)" mat-icon-button [color]="currentLayout == SidebarLayout.Chats ? 'primary' : 'accent'"
+                    aria-label="Example icon button with a heart icon">
+                    <mat-icon>chat</mat-icon>
+                </button>
+                <button (click)="setLayout(SidebarLayout.Contacts)" mat-icon-button [color]="currentLayout == SidebarLayout.Contacts ? 'primary' : 'accent'"
+                    aria-label="Example icon button with a home icon">
+                    <mat-icon>person</mat-icon>
+                </button>
+                <button (click)="setLayout(SidebarLayout.Groups)" [color]="currentLayout == SidebarLayout.Groups ? 'primary' : 'accent'" mat-icon-button
+                    aria-label="Example icon button with a menu icon">
+                    <mat-icon>group</mat-icon>
+                </button>
+            </div>
+            <!-- Settings -->
+            <button routerLink="settings" routerLinkActive="active" #rlaSettings="routerLinkActive"
+                [color]="rlaSettings.isActive ? 'primary' : 'accent'" mat-icon-button
+                aria-label="Example icon button with a open in new tab icon">
+                <mat-icon>settings</mat-icon>
+            </button>
+        </div>
+    </div>
+</section>
+<!-- Content based on layout -->
+<div [ngSwitch]="currentLayout">
+    <ng-container *ngSwitchCase="SidebarLayout.Chats">
+        <!-- Chat layout -->
+        <app-chats></app-chats>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="SidebarLayout.Contacts">
+        <!-- Contacts layout -->
+        <app-contacts></app-contacts>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="SidebarLayout.Groups">
+        <!-- Group layout -->
+    </ng-container>
+</div>

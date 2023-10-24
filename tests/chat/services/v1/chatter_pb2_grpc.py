@@ -2,7 +2,6 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from chat.core.v1 import message_pb2 as chat_dot_core_dot_v1_dot_message__pb2
 from chat.services.v1 import chatter_pb2 as chat_dot_services_dot_v1_dot_chatter__pb2
 
 
@@ -28,7 +27,7 @@ class ChatterStub(object):
         self.GetMessages = channel.unary_stream(
                 '/chat.services.v1.Chatter/GetMessages',
                 request_serializer=chat_dot_services_dot_v1_dot_chatter__pb2.GetMessagesRequest.SerializeToString,
-                response_deserializer=chat_dot_core_dot_v1_dot_message__pb2.Message.FromString,
+                response_deserializer=chat_dot_services_dot_v1_dot_chatter__pb2.SendMessageRequest.FromString,
                 )
 
 
@@ -48,8 +47,7 @@ class ChatterServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def GetMessages(self, request, context):
-        """Other methods
-        """
+        """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
@@ -70,7 +68,7 @@ def add_ChatterServicer_to_server(servicer, server):
             'GetMessages': grpc.unary_stream_rpc_method_handler(
                     servicer.GetMessages,
                     request_deserializer=chat_dot_services_dot_v1_dot_chatter__pb2.GetMessagesRequest.FromString,
-                    response_serializer=chat_dot_core_dot_v1_dot_message__pb2.Message.SerializeToString,
+                    response_serializer=chat_dot_services_dot_v1_dot_chatter__pb2.SendMessageRequest.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -129,6 +127,6 @@ class Chatter(object):
             metadata=None):
         return grpc.experimental.unary_stream(request, target, '/chat.services.v1.Chatter/GetMessages',
             chat_dot_services_dot_v1_dot_chatter__pb2.GetMessagesRequest.SerializeToString,
-            chat_dot_core_dot_v1_dot_message__pb2.Message.FromString,
+            chat_dot_services_dot_v1_dot_chatter__pb2.SendMessageRequest.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

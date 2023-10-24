@@ -42,3 +42,12 @@
 /Users/amitshmulevitch/dotnet/ChatApp/backend/obj/Debug/net8.0/ChatApp.pdb
 /Users/amitshmulevitch/dotnet/ChatApp/backend/obj/Debug/net8.0/ChatApp.genruntimeconfig.cache
 /Users/amitshmulevitch/dotnet/ChatApp/backend/obj/Debug/net8.0/ref/ChatApp.dll
+/Users/amitshmulevitch/dotnet/ChatApp/backend/obj/Debug/net8.0/ChatApp.sourcelink.json
+/Users/amitshmulevitch/dotnet/ChatApp/backend/bin/Debug/net8.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/amitshmulevitch/dotnet/ChatApp/backend/bin/Debug/net8.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/amitshmulevitch/dotnet/ChatApp/backend/bin/Debug/net8.0/Microsoft.IdentityModel.Logging.dll
+/Users/amitshmulevitch/dotnet/ChatApp/backend/bin/Debug/net8.0/Microsoft.IdentityModel.Protocols.dll
+/Users/amitshmulevitch/dotnet/ChatApp/backend/bin/Debug/net8.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/Users/amitshmulevitch/dotnet/ChatApp/backend/bin/Debug/net8.0/Microsoft.IdentityModel.Tokens.dll
+/Users/amitshmulevitch/dotnet/ChatApp/backend/bin/Debug/net8.0/System.IdentityModel.Tokens.Jwt.dll
+/Users/amitshmulevitch/dotnet/ChatApp/backend/bin/Debug/net8.0/appsettings.Docker.json

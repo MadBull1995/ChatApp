@@ -1,0 +1,66 @@
+version: "3"
+
+services:
+  # chatters-statsd-exporter:
+  #   image: prom/statsd-exporter:latest
+  #   command: ["--statsd.listen-tcp=:9127","--web.listen-address=:9104"]
+  #   ports:
+  #     - "9127:9127"
+  #     - "9104:9104"
+  #   networks:
+  #     - chatters_net
+  chatters-db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: chatters
+      POSTGRES_PASSWORD: chatters
+      POSTGRES_DB: chattersdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD","pg_isready -U chatters"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - chatters_net
+
+  chatters-app:
+    build: ./backend
+    volumes:
+      - ./backend/appsettings.Docker.json:/app/appsettings.json
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    ports:
+      - "8080:8080"
+    networks:
+      - chatters_net
+    depends_on:
+      - chatters-db
+
+  chatters-proxy:
+    image: envoyproxy/envoy-alpine:v1.21-latest
+    volumes:
+      - ./docker/envoy.yaml:/etc/envoy/envoy.yaml
+    command: /usr/local/bin/envoy -c /etc/envoy/envoy.yaml --service-cluster chatters_service --service-node chatters_service
+    ports:
+      - "9001:9001"
+      - "9000:9000"
+    networks:
+      - chatters_net
+  
+  # chatters-web:
+  #   image: envoyproxy/envoy-alpine:v1.21-latest
+  #   volumes:
+  #     - ./proxy/envoy.yaml:/etc/envoy/envoy.yaml
+  #   command: /usr/local/bin/envoy -c /etc/envoy/envoy.yaml --service-cluster chatters_service --service-node chatters_service
+  #   ports:
+  #     - "4200:4200"
+  #   networks:
+  #     - chatters_net
+
+networks:
+  chatters_net:
+    name: chatters_net

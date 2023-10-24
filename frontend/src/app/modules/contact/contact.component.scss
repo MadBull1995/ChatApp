@@ -1,0 +1,79 @@
+mat-card {
+    margin: auto;
+    min-width: 500px;
+  }
+  
+  mat-card-header {
+    display: flex;
+    align-items: center;
+  }
+  
+  mat-card-avatar {
+    height: 64px;
+    width: 64px;
+    border-radius: 50%;
+    background-color: #ccc;
+    overflow: hidden;
+  }
+  
+  img {
+    width: 100%;
+    height: auto;
+  }
+  
+  mat-icon {
+    color: rgba(0, 0, 0, 0.54);
+  }
+  
+
+  .contact-card {
+    max-width: 400px;
+    margin: auto;
+    background: #333; // For dark background
+    color: #f5f5f5;   // Light text color
+  }
+  
+  mat-card-header {
+    align-items: center;
+  }
+  
+  .avatar-placeholder {
+    height: 64px;
+    width: 64px;
+    border-radius: 50%;
+    background-color: #555; // Slightly lighter than the card background
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+  }
+  
+  img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .info-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+  
+    mat-icon {
+      margin-right: 16px;
+      font-size: 24px;
+    }
+  }
+  
+  mat-card-actions {
+    justify-content: flex-end;
+  }
+  
+
+  .container {
+    width: 100% !important;
+    // height: 100vh;
+    padding-top: 10rem;
+    display: flex;
+    // justify-content: center;
+    // align-items: center;
+  }

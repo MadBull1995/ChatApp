@@ -1,0 +1,38 @@
+<div class="chat-container">
+    <mat-card class="chat-area">
+        <mat-list>
+            <mat-list-item *ngFor="let message of messages; let i = index"
+                [ngClass]="{'own-message': message.username === 'You', 'other-message': message.username !== 'You'}">
+                <div *ngIf="message.username !== 'You'" class="message-icon">
+                    <mat-icon matListIcon>person</mat-icon>
+                </div>
+                <div class="message-content">
+                    <h3 style="margin: 0;">{{ message.username }}</h3>
+                    <div class="message-header">
+                        <ng-container *ngIf="message.username === 'You'; else contactMessage">
+                            <p class="ts">{{message.timestamp | date}}</p>
+                            <p>{{ message.content }}</p>
+                        </ng-container>
+                        <ng-template #contactMessage>
+                            <p>{{ message.content }}</p>
+                            <p class="ts">{{message.timestamp | date}}</p>
+                        </ng-template>
+                    </div>
+                    
+                </div>
+                <div *ngIf="message.username === 'You'" class="message-icon">
+                    <mat-icon matListIcon>person</mat-icon>
+                </div>
+            </mat-list-item>
+        </mat-list>
+    </mat-card>
+    <div class="input-container">
+        <mat-form-field class="message-input" appearance="outline">
+            <input matInput [(ngModel)]="newMessage" placeholder="Type your message" (keyup.enter)="sendMessage()">
+        </mat-form-field>
+        <button mat-icon-button color="primary" class="send-button" (click)="sendMessage()">
+            <mat-icon>send</mat-icon>
+        </button>
+    </div>
+    <!-- <button mat-raised-button color="primary" (click)="sendMessage()">Send</button> -->
+</div>

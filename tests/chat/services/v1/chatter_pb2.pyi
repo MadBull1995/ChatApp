@@ -35,7 +35,7 @@ class SendMessageResponse(_message.Message):
     def __init__(self, status: _Optional[str] = ...) -> None: ...
 
 class GetMessagesRequest(_message.Message):
-    __slots__ = ["room_id"]
-    ROOM_ID_FIELD_NUMBER: _ClassVar[int]
-    room_id: str
-    def __init__(self, room_id: _Optional[str] = ...) -> None: ...
+    __slots__ = ["user_id"]
+    USER_ID_FIELD_NUMBER: _ClassVar[int]
+    user_id: str
+    def __init__(self, user_id: _Optional[str] = ...) -> None: ...

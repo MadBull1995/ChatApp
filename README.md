@@ -10,9 +10,9 @@ A simple but yet pwoerful demonstration of gRPC streaming capabilities in "real-
 ### Architecture
 When `ChatApp` is Dockerized application, it will run with several components:
 - `chat-front` - The frontend application code written with Angular at [`frontend/`](./frontend/)
-- `chat-back` - The backend application code written with .NET and gRPC at [`backend/`][./backend]
+- `chat-back` - The backend application code written with .NET and gRPC at [`backend/`](./backend/)
 - `chat-db` - PostgreSQL database instance
-- `chat-proxy` - Envoy edge proxy for enabling gRPC calls from browser
+- `chat-proxy` - Envoy edge proxy for enabling gRPC calls from browser [`docker/envoy.yml`](./docker/envoy.yml)
 
 ## Setup
 Initialize the components with:

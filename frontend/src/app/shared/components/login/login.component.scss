@@ -1,0 +1,45 @@
+.login-container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+mat-progress-bar {
+    border-radius:  0 0 10px 10px;
+}
+
+mat-card {
+    max-width: 400px;
+    margin: auto;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+
+    mat-card-title {
+        font-size: 24px;
+        margin-bottom: 16px;
+    }
+
+    mat-form-field {
+        width: 100%;
+        margin-bottom: 16px;
+    }
+
+    // mat-card-actions {
+    //     display: flex;
+    //     justify-content: space-between;
+    // }
+}
+
+.card {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.form {
+    margin-top: 3rem;
+}
+
+.login-title {
+    line-height: 2rem !important;
+}

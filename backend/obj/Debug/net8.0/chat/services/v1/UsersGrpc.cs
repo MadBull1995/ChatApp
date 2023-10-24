@@ -49,6 +49,12 @@ namespace ChatApp {
     static readonly grpc::Marshaller<global::ChatApp.SignUpRequest> __Marshaller_chat_services_v1_SignUpRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ChatApp.SignUpRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::ChatApp.User> __Marshaller_chat_core_v1_User = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ChatApp.User.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::ChatApp.LoginRequest> __Marshaller_chat_services_v1_LoginRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ChatApp.LoginRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::ChatApp.LoginResponse> __Marshaller_chat_services_v1_LoginResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ChatApp.LoginResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::ChatApp.UserInfoRequest> __Marshaller_chat_services_v1_UserInfoRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ChatApp.UserInfoRequest.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::ChatApp.SignUpRequest, global::ChatApp.User> __Method_SignUp = new grpc::Method<global::ChatApp.SignUpRequest, global::ChatApp.User>(
@@ -56,6 +62,22 @@ namespace ChatApp {
         __ServiceName,
         "SignUp",
         __Marshaller_chat_services_v1_SignUpRequest,
+        __Marshaller_chat_core_v1_User);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::ChatApp.LoginRequest, global::ChatApp.LoginResponse> __Method_Login = new grpc::Method<global::ChatApp.LoginRequest, global::ChatApp.LoginResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "Login",
+        __Marshaller_chat_services_v1_LoginRequest,
+        __Marshaller_chat_services_v1_LoginResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::ChatApp.UserInfoRequest, global::ChatApp.User> __Method_UserInfo = new grpc::Method<global::ChatApp.UserInfoRequest, global::ChatApp.User>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "UserInfo",
+        __Marshaller_chat_services_v1_UserInfoRequest,
         __Marshaller_chat_core_v1_User);
 
     /// <summary>Service descriptor</summary>
@@ -74,6 +96,18 @@ namespace ChatApp {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::ChatApp.LoginResponse> Login(global::ChatApp.LoginRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::ChatApp.User> UserInfo(global::ChatApp.UserInfoRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
     }
 
     /// <summary>Creates service definition that can be registered with a server</summary>
@@ -82,7 +116,9 @@ namespace ChatApp {
     public static grpc::ServerServiceDefinition BindService(UsersBase serviceImpl)
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
-          .AddMethod(__Method_SignUp, serviceImpl.SignUp).Build();
+          .AddMethod(__Method_SignUp, serviceImpl.SignUp)
+          .AddMethod(__Method_Login, serviceImpl.Login)
+          .AddMethod(__Method_UserInfo, serviceImpl.UserInfo).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the service binding logic.
@@ -93,6 +129,8 @@ namespace ChatApp {
     public static void BindService(grpc::ServiceBinderBase serviceBinder, UsersBase serviceImpl)
     {
       serviceBinder.AddMethod(__Method_SignUp, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::ChatApp.SignUpRequest, global::ChatApp.User>(serviceImpl.SignUp));
+      serviceBinder.AddMethod(__Method_Login, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::ChatApp.LoginRequest, global::ChatApp.LoginResponse>(serviceImpl.Login));
+      serviceBinder.AddMethod(__Method_UserInfo, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::ChatApp.UserInfoRequest, global::ChatApp.User>(serviceImpl.UserInfo));
     }
 
   }

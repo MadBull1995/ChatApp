@@ -15,7 +15,7 @@ from chat.core.v1 import user_pb2 as chat_dot_core_dot_v1_dot_user__pb2
 from chat.core.v1 import message_pb2 as chat_dot_core_dot_v1_dot_message__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1c\x63hat/services/v1/users.proto\x12\x10\x63hat.services.v1\x1a\x17\x63hat/core/v1/user.proto\x1a\x1a\x63hat/core/v1/message.proto\"B\n\rSignUpRequest\x12\x10\n\x08username\x18\x01 \x01(\t\x12\x10\n\x08password\x18\x02 \x01(\t\x12\r\n\x05\x65mail\x18\x03 \x01(\t2F\n\x05Users\x12=\n\x06SignUp\x12\x1f.chat.services.v1.SignUpRequest\x1a\x12.chat.core.v1.UserB\n\xaa\x02\x07\x43hatAppb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1c\x63hat/services/v1/users.proto\x12\x10\x63hat.services.v1\x1a\x17\x63hat/core/v1/user.proto\x1a\x1a\x63hat/core/v1/message.proto\"B\n\rSignUpRequest\x12\x10\n\x08username\x18\x01 \x01(\t\x12\x10\n\x08password\x18\x02 \x01(\t\x12\r\n\x05\x65mail\x18\x03 \x01(\t\">\n\rLoginResponse\x12 \n\x04user\x18\x01 \x01(\x0b\x32\x12.chat.core.v1.User\x12\x0b\n\x03jwt\x18\x02 \x01(\t\"/\n\x0cLoginRequest\x12\r\n\x05\x65mail\x18\x01 \x01(\t\x12\x10\n\x08password\x18\x02 \x01(\t2\x90\x01\n\x05Users\x12=\n\x06SignUp\x12\x1f.chat.services.v1.SignUpRequest\x1a\x12.chat.core.v1.User\x12H\n\x05Login\x12\x1e.chat.services.v1.LoginRequest\x1a\x1f.chat.services.v1.LoginResponseB\n\xaa\x02\x07\x43hatAppb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -26,6 +26,10 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   DESCRIPTOR._serialized_options = b'\252\002\007ChatApp'
   _globals['_SIGNUPREQUEST']._serialized_start=103
   _globals['_SIGNUPREQUEST']._serialized_end=169
-  _globals['_USERS']._serialized_start=171
-  _globals['_USERS']._serialized_end=241
+  _globals['_LOGINRESPONSE']._serialized_start=171
+  _globals['_LOGINRESPONSE']._serialized_end=233
+  _globals['_LOGINREQUEST']._serialized_start=235
+  _globals['_LOGINREQUEST']._serialized_end=282
+  _globals['_USERS']._serialized_start=285
+  _globals['_USERS']._serialized_end=429
 # @@protoc_insertion_point(module_scope)

@@ -1,0 +1,36 @@
+.not-found-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    // background-color: #f7f7f7; // A soft background color
+  }
+  
+  .chat-bubble {
+    background-color: #555; // A slightly darker shade than the background
+    line-height: 2rem;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-size: 1.5rem;
+  
+    .error-code {
+      font-size: 3rem;
+      color: #ff5252; // A noticeable red color for the error code
+      margin-top: 10px;
+    }
+  }
+  
+  .description {
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #757575; // Soft gray color for the description
+  }
+  
+  a {
+    margin-top: 20px;
+    text-decoration: none;
+  }
+  

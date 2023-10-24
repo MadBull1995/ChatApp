@@ -1,0 +1,32 @@
+<div class="login-container">
+    <mat-card>
+        <mat-card-header>
+          <mat-card-subtitle>Chatters {{mode}}</mat-card-subtitle>
+          <mat-card-title  class="login-title">{{mode | titlecase}} to Chatters, and start chatting 📢</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>Chatters is real-time chat application written in .NET and Angular</p>
+          <mat-divider></mat-divider>
+          <form class="form">
+            <!-- Email Field -->
+            <mat-form-field appearance="outline">
+              <mat-label>Email</mat-label>
+              <input [formControl]="email" matInput type="email" required>
+            </mat-form-field>
+      
+            <!-- Password Field -->
+            <mat-form-field appearance="outline">
+              <mat-label>Password</mat-label>
+              <input [formControl]="password" matInput type="password" required>
+            </mat-form-field>
+          </form>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" (click)="login()">Login</button>
+            <button mat-raised-button color="accent" (click)="signup()">Signup</button>
+        </mat-card-actions>
+        <mat-card-footer class="footer">
+          <mat-progress-bar *ngIf="_loading" mode="indeterminate"></mat-progress-bar>
+        </mat-card-footer>
+    </mat-card>
+</div>

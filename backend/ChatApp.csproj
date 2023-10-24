@@ -7,12 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Protobuf Include="..\protos\chat\core\v1\user.proto" Link="Protos\chat\core\v1\user.proto" GrpcServices="None" ProtoRoot="../protos" />
-    <Protobuf Include="..\protos\chat\core\v1\message.proto" Link="Protos\chat\core\v1\message.proto" GrpcServices="None" ProtoRoot="../protos" />
-    <Protobuf Include="..\protos\chat\core\v1\chat.proto" Link="Protos\chat\core\v1\chat.proto" GrpcServices="None" ProtoRoot="../protos" />
-    <Protobuf Include="..\protos\chat\core\v1\group.proto" Link="Protos\chat\core\v1\group.proto" GrpcServices="None" ProtoRoot="../protos" />
-    <Protobuf Include="..\protos\chat\services\v1\chatter.proto" Link="Protos\chat\core\v1\chatter.proto" GrpcServices="Server" ProtoRoot="../protos" />
-    <Protobuf Include="..\protos\chat\services\v1\users.proto" Link="Protos\chat\core\v1\users.proto" GrpcServices="Server" ProtoRoot="../protos" />
+    <Protobuf Include="Protos\chat\core\v1\*.proto"  GrpcServices="None" ProtoRoot="Protos" />
+    <Protobuf Include="Protos\chat\services\v1\*.proto" GrpcServices="Server" ProtoRoot="Protos" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,6 +18,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.11" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.11" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.11">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

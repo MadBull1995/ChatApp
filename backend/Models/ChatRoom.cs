@@ -8,7 +8,7 @@ public class ChatRoom
 
     public void AddMessage(User sender, string message)
     {
-        Messages.Add(new Message(sender, message));
+        Messages.Add(new Message(sender, message, ChatId));
     }
 
     // More methods can be added as required.

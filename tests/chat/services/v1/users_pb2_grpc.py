@@ -20,12 +20,23 @@ class UsersStub(object):
                 request_serializer=chat_dot_services_dot_v1_dot_users__pb2.SignUpRequest.SerializeToString,
                 response_deserializer=chat_dot_core_dot_v1_dot_user__pb2.User.FromString,
                 )
+        self.Login = channel.unary_unary(
+                '/chat.services.v1.Users/Login',
+                request_serializer=chat_dot_services_dot_v1_dot_users__pb2.LoginRequest.SerializeToString,
+                response_deserializer=chat_dot_services_dot_v1_dot_users__pb2.LoginResponse.FromString,
+                )
 
 
 class UsersServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def SignUp(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Login(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -38,6 +49,11 @@ def add_UsersServicer_to_server(servicer, server):
                     servicer.SignUp,
                     request_deserializer=chat_dot_services_dot_v1_dot_users__pb2.SignUpRequest.FromString,
                     response_serializer=chat_dot_core_dot_v1_dot_user__pb2.User.SerializeToString,
+            ),
+            'Login': grpc.unary_unary_rpc_method_handler(
+                    servicer.Login,
+                    request_deserializer=chat_dot_services_dot_v1_dot_users__pb2.LoginRequest.FromString,
+                    response_serializer=chat_dot_services_dot_v1_dot_users__pb2.LoginResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -63,5 +79,22 @@ class Users(object):
         return grpc.experimental.unary_unary(request, target, '/chat.services.v1.Users/SignUp',
             chat_dot_services_dot_v1_dot_users__pb2.SignUpRequest.SerializeToString,
             chat_dot_core_dot_v1_dot_user__pb2.User.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def Login(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/chat.services.v1.Users/Login',
+            chat_dot_services_dot_v1_dot_users__pb2.LoginRequest.SerializeToString,
+            chat_dot_services_dot_v1_dot_users__pb2.LoginResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
